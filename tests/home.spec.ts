@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-test.describe("Home page", () => {
+test.describe("Home page with no auth", () => {
     test.beforeEach(async ({ page }) => {
         await page.goto('https://practicesoftwaretesting.com/');
     })
@@ -32,3 +32,15 @@ test.describe("Home page", () => {
     });
 
 });
+
+test.describe("Home page customer 01 auth", () => {
+    test.use({ storageState: ".auth/customer01.json"});
+    test.beforeEach(async ({ page }) => {
+        await page.goto('https://practicesoftwaretesting.com/');
+    });
+
+    test('check customer 01 is signed in', async ({ page }) => {
+        //Ensure the sign in link is present
+        await expect(page.getByTestId("nav-sign-in")).not.toBeVisible();
+    });
+})
