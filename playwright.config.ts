@@ -33,7 +33,7 @@ export default defineConfig({
     ignoreHTTPSErrors: true,
     video: 'retain-on-failure',
     screenshot: 'only-on-failure',
-    headless: false,
+    headless: true,
     testIdAttribute: 'data-test'
   },
 
