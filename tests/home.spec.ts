@@ -4,6 +4,11 @@ test.describe("Home page with no auth", () => {
     test.beforeEach(async ({ page }) => {
         await page.goto('https://practicesoftwaretesting.com/');
     })
+
+    test('visual test', async ({ page }) => {
+        //Ensure the sign in link is present
+        await expect(page).toHaveScreenshot("homepagenoauth.png");
+    });
     test('check sign in', async ({ page }) => {
         //Ensure the sign in link is present
         await expect(page.getByTestId("nav-sign-in")).toHaveText("Sign in");
@@ -38,7 +43,10 @@ test.describe("Home page customer 01 auth", () => {
     test.beforeEach(async ({ page }) => {
         await page.goto('https://practicesoftwaretesting.com/');
     });
-
+    test('visual test auth', async ({ page }) => {
+        //Ensure the sign in link is present
+        await expect(page).toHaveScreenshot("home-page-auth.png");
+    });
     test('check customer 01 is signed in', async ({ page }) => {
         //Ensure the sign in link is present
         await expect(page.getByTestId("nav-sign-in")).not.toBeVisible();
